@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>e-Services - Políticas de Byron.inc</title>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="author" content="Webestica.com">
+        <meta name="description" content="e-Services">
+
+        <script>
+            const storedTheme = localStorage.getItem('theme');
+
+            const getPreferredTheme = () => {
+                if (storedTheme) {
+                    return storedTheme;
+                }
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            };
+
+            const setTheme = function (theme) {
+                if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    document.documentElement.setAttribute('data-bs-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-bs-theme', theme);
+                }
+            };
+
+            setTheme(getPreferredTheme());
+
+            window.addEventListener('DOMContentLoaded', () => {
+                var el = document.querySelector('.theme-icon-active');
+                if (el !== 'undefined' && el !== null) {
+                    const showActiveTheme = theme => {
+                        const activeThemeIcon = document.querySelector('.theme-icon-active use');
+                        const btnToActive = document.querySelector(`[data-bs-theme-value="${theme}"]`);
+                        const svgOfActiveBtn = btnToActive.querySelector('.mode-switch use').getAttribute('href');
+
+                        document.querySelectorAll('[data-bs-theme-value]').forEach(element => {
+                            element.classList.remove('active');
+                        });
+
+                        btnToActive.classList.add('active');
+                        activeThemeIcon.setAttribute('href', svgOfActiveBtn);
+                    };
+
+                    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+                        if (storedTheme !== 'light' || storedTheme !== 'dark') {
+                            setTheme(getPreferredTheme());
+                        }
+                    });
+
+                    showActiveTheme(getPreferredTheme());
+
+                    document.querySelectorAll('[data-bs-theme-value]')
+                            .forEach(toggle => {
+                                toggle.addEventListener('click', () => {
+                                    const theme = toggle.getAttribute('data-bs-theme-value');
+                                    localStorage.setItem('theme', theme);
+                                    setTheme(theme);
+                                    showActiveTheme(theme);
+                                });
+                            });
+
+                }
+            });
+
+        </script>
+
+        <link rel="shortcut icon" href="../../assets/images/favicon.ico">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap">
+
+        <link rel="stylesheet" type="text/css" href="../../assets/vendor/font-awesome/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css">
+        <link rel="stylesheet" type="text/css" href="../../assets/vendor/tiny-slider/tiny-slider.css">
+
+        <link rel="stylesheet" type="text/css" href="../../assets/css/style.css">
+
+    </head>
+
+    <body>
+
+        <header class="navbar-light header-sticky">
+            <nav class="navbar navbar-expand-xl">
+                <div class="container">
+                    <a class="navbar-brand" href="privacy-policy.html">
+                        <img class="light-mode-item navbar-brand-item" src="../../assets/images/logo.svg" alt="logo">
+                        <img class="dark-mode-item navbar-brand-item" src="../../assets/images/logo-light.svg" alt="logo">
+                    </a>
+
+
+                    <button class="navbar-toggler ms-sm-auto mx-3 me-md-0 p-0 p-sm-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCategoryCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-animation">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+
+
+
+
+
+                    <div class="navbar-collapse collapse" id="navbarCategoryCollapse">
+                        <ul class="navbar-nav navbar-nav-scroll nav-pills-primary-soft text-center ms-auto p-2 p-xl-0">
+                            <li class="nav-item"> <a class="nav-link" href="contact.jsp">Contáctanos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="team.html">Nuestro Equipo</a></li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">Conócenos </a></li>
+                        </ul>
+                    </div>
+
+                    </header>
+                    <main>
+
+                        <section class="pt-4 pt-lg-5">
+                            <div class="container">
+                                <div class="row mb-4">
+                                    <div class="col-12 text-center">
+                                        <h1 class="fs-2 mb-0">Políticas de la Empresa</h1>
+                                        <img src="../../assets/images/about/03.jpg" class="h-lg-400px rounded-3 mt-4" alt="">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-10 mx-auto">
+                                        <div class="vstack gap-3">
+
+                                            <div class="card bg-transparent p-0">
+                                                <div class="card-header border-bottom bg-transparent px-0">
+                                                    <h4 class="card-title mb-0">Políticas Externas</h4>
+                                                </div>
+
+                                                <div class="card-body px-0">
+                                                    <ul class="mb-0">
+                                                        <li>Proteger toda la información del cliente y de los trabajadores.</li>
+                                                        <li>Brindar un trato justo y de calidad a todos nuestros clientes.</li>
+                                                        <li>Todos nuestros proyectos seran de calidad y excelencia.</li>
+                                                        <li>Cumplir con todas las leyes del gobierno.</li>
+                                                        <li>Expresarse de manera honesta sin perjudicar al cliente.</li>
+                                                        <li>El plazo de tiempo es inmovible una vez asignado</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 mx-auto">
+                                        <div class="vstack gap-3">
+
+                                            <div class="card bg-transparent p-0">
+                                                <div class="card-header border-bottom bg-transparent px-0">
+                                                    <h4 class="card-title mb-0">Políticas Internas</h4>
+                                                </div>
+
+                                                <div class="card-body px-0">
+                                                    <ul class="mb-0">
+                                                        <li>Todos los sábados se saldra a las 14:00 pm.</li>
+                                                        <li>En el cumpleaños de un empleado se le debera festejar.</li>
+                                                        <li>Evitar el consumo de papel y plasticos.</li>
+                                                        <li>Todos son bienvenidos en nuestra empresa.</li>
+                                                        <li>Trabajar de forma hibrida para reducir el consumo de servicios.</li>
+                                                        <li>Demostrar cero tolerancias a cualquier tipo de corrupción.</li>
+                                                        <li>Fomentar el trabajo en equipo.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-10 mx-auto">
+                                        <div class="vstack gap-3">
+
+                                            <div class="card bg-transparent p-0">
+                                                <div class="card-header border-bottom bg-transparent px-0">
+                                                    <h4 class="card-title mb-0">Valores</h4>
+                                                </div>
+
+                                                <div class="card-body px-0">
+                                                    <ul class="mb-0">
+                                                        <li>Respetar, pensar y actuar positivamente sobre los demás y sobre nosotros mismos (auto respeto), significa preocuparse por el impacto de nuestras acciones en los demás, ser inclusivos y aceptar a los demás por lo que son, incluso cuando son diferentes.</li>
+                                                        <li>Valor moral que implica el respeto íntegro hacia el otro, hacia sus ideas, prácticas o creencias, independientemente de que choquen o sean diferentes de las nuestras. Es también el reconocimiento de las diferencias inherentes a la naturaleza humana, a la diversidad de las culturas, las religiones o las maneras de ser o de actuar.</li>
+                                                        <li>La característica propia de las buenas personas. Es también la inclinación o tendencia natural a hacer el bien. Bondad se aplica al carácter de una persona, un objeto o una acción para indicar que es buena.</li>
+                                                        <li>El apoyo o la adhesión circunstancial a una causa o al interés de otros. Es cuando dos o más personas se unen y colaboran mutuamente para conseguir un fin común, se habla de solidaridad. La solidaridad es compartir con otros tanto lo material como lo sentimental, es ofrecer ayuda a los demás y una colaboración mutua entre las personas.</li>
+                                                        <li>Referencia a un conjunto de atributos personales, como la decencia, el pudor, la dignidad, la sinceridad, la justicia, la rectitud y la honradez en la forma de ser y de actuar. </li>
+                                                        <li>El conjunto de normas codificadas que el Estado, a través de los organismos competentes, dicta, hace cumplir y sanciona cuando son irrespetadas, suprimiendo la acción o inacción que generó la afectación del bien común.</li>
+                                                        <li>Dar cumplimiento a las obligaciones y ser cuidadoso al tomar decisiones o al realizar algo. La responsabilidad es también el hecho de ser responsable de alguien o de algo.</li>
+                                                        <li>La intención de comprender los sentimientos y emociones, intentando experimentar de forma objetiva y racional lo que siente otro individuo.</li>
+                                                        <li>La capacidad de las personas para poner en práctica una serie de principios relativos al orden y la constancia, tanto para la ejecución de tareas y actividades cotidianas, como en sus vidas en general.</li>
+                                                        <li>Un tipo de acuerdo que puede considerarse como un contrato no escrito en el cual las partes asumen ciertas obligaciones o, adquieren responsabilidades.</li>
+                                                        <li>El carácter de una persona, cosa o animal leal. El término de lealtad expresa un sentimiento de respeto y fidelidad hacia una persona, compromiso, comunidad, organizaciones, principios morales, entre otros.</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+
+                    </main>
+                    <footer class="bg-dark pt-5">
+                        <div class="container">
+                            <div class="row g-4">
+
+                                <div class="col-lg-3">
+                                    <a href="../../index.html">
+                                        <img class="h-40px" src="../../assets/images/logo-light.svg" alt="logo">
+                                    </a>
+                                    <p class="my-3 text-muted">"Demostrando que la Ciencia y la Tecnología son una rama más del Arte"</p>
+                                    <p class="mb-2"><a href="#" class="text-muted text-primary-hover"><i class="bi bi-telephone me-2"></i> +52 1 55 5555 5555</a> </p>
+                                    <p class="mb-0"><a href="#" class="text-muted text-primary-hover"><i class="bi bi-envelope me-2"></i>byron.inc.jdb@gmail.com</a></p>
+                                </div>
+                                <div class="col-lg-8 ms-auto">
+                                    <div class="row g-4">
+                                        <div class="col-6 col-md-4">
+                                            <h5 class="text-white mb-2 mb-md-4">Páginas</h5>
+                                            <ul class="nav flex-column text-primary-hover">
+                                                <li class="nav-item"><a class="nav-link text-muted" href="about.html">Acerca De Nosotros</a></li>
+                                                <li class="nav-item"><a class="nav-link text-muted" href="contact.jsp">Contáctanos</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-6 col-md-5">
+                                            <h5 class="text-white mb-2 mb-md-4">Links</h5>
+                                            <ul class="nav flex-column text-primary-hover">
+                                                <li class="nav-item"><a class="nav-link text-muted" href="../InicioSesion/sign-up.jsp">Regístrate</a></li>
+                                                <li class="nav-item"><a class="nav-link text-muted" href="../InicioSesion/sign-in.jsp">Ingresa</a></li>
+                                                <li class="nav-item"><a class="nav-link text-muted" href="privacy-policy.html">Políticas De Privacidad</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="col-6 col-md-3">
+                                            <h5 class="text-white mb-2 mb-md-4">Servicios</h5>
+                                            <ul class="nav flex-column text-primary-hover">
+                                                <li class="nav-item"><a class="nav-link text-muted" href="../InicioSesion/sign-in.jsp"><i class="bi bi-bucket-fill me-2"></i>Servicios</a>
+                                                <li class="nav-item"><a class="nav-link text-muted" href="../Generics/coming-soon.html"><i class="fa-solid fa-car me-2"></i>Transporte</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row g-4 justify-content-between mt-0 mt-md-2">
+
+                                <div class="col-sm-7 col-md-6 col-lg-4">
+                                    <h5 class="text-white mb-2">Payment & Security</h5>
+                                    <ul class="list-inline mb-0 mt-3">
+                                        <li class="list-inline-item"> <a href="#"><img src="../../assets/images/element/paypal.svg" class="h-30px" alt=""></a></li>
+                                        <li class="list-inline-item"> <a href="#"><img src="../../assets/images/element/visa.svg" class="h-30px" alt=""></a></li>
+                                        <li class="list-inline-item"> <a href="#"><img src="../../assets/images/element/mastercard.svg" class="h-30px" alt=""></a></li>
+                                        <li class="list-inline-item"> <a href="#"><img src="../../assets/images/element/expresscard.svg" class="h-30px" alt=""></a></li>
+                                    </ul>
+                                </div>
+
+                                <div class="col-sm-5 col-md-6 col-lg-3 text-sm-end">
+                                    <h5 class="text-white mb-2">Síguenos en</h5>
+                                    <ul class="list-inline mb-0 mt-3">
+                                        <li class="list-inline-item"> <a class="btn btn-sm px-2 bg-facebook mb-0" href="https://www.facebook.com/profile.php?id=100092532574820" target="_blank"><i class="fab fa-fw fa-facebook-f"></i></a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <hr class="mt-4 mb-0">
+
+                            <div class="row">
+                                <div class="container">
+                                    <div class="d-lg-flex justify-content-between align-items-center py-3 text-center text-lg-start">
+                                        <div class="text-muted text-primary-hover"> Copyrights ©2023 Byron Inc</div>
+                                        <div class="nav mt-2 mt-lg-0">
+                                            <ul class="list-inline text-primary-hover mx-auto mb-0">
+                                                <li class="list-inline-item me-0"><a class="nav-link py-1 text-muted" href="privacy-policy.html">Privacy policy</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </footer>
+                    <div class="back-top"></div>
+
+                    <script src="../../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+                    <script src="../../assets/vendor/tiny-slider/tiny-slider.js"></script>
+
+                    <script src="../../assets/js/functions.js"></script>
+
+                    </body>
+                    </html>
